@@ -48,7 +48,7 @@ const Search:FC = () => {
           type: "SET_SEARCH_TERM_SAGA",
           payload: e.target.value
       })
-    }, []);
+    }, [dispatch, router]);
     
     return (  
       <div className={classes.root}>
