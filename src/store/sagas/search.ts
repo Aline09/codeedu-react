@@ -8,7 +8,6 @@ export function* searchResults(action: any){
   const searchTerm: string = yield select(({searchReducer}) => searchReducer.searchTerm);
 
   if(!searchTerm.length){
-    console.log('return initail')
     yield put({type: "SEARCH_ALBUMS_RESET"})
     yield put({type: "SEARCH_SOUNDTRACKS_RESET"})
   } else {
