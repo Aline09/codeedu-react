@@ -12,13 +12,16 @@ export default async function handler(
   const limit = 10;
   const firstIndex = 0 
   const lastIndex = (Number(page)) * limit;
+  //Set API cache control
+  res.setHeader('Cache-Control', 's-maxage=20, stale-while-revalidate=59');
+
 
   const foundAlbums = albums.filter((album : Album) => {
     if(album.artist.toUpperCase().indexOf(search_term.toString().toUpperCase()) !== -1){
       return album
     } 
   })
-
+  
   if(!page){
     res.status(200).json(foundAlbums);
   } else {
