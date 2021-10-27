@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme: Theme) =>
       display: 'flex',
       backgroundColor: 'green',
       height: '100vh',
-      overflowY: "scroll"
+      overflowY: "auto"
     },
   }));
 
