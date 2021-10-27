@@ -22,12 +22,16 @@ const useStyles = makeStyles((theme: Theme) =>
     content: {
         flexGrow: 1,
         backgroundColor: theme.palette.background.default,
+        padding: theme.spacing(3),
         marginLeft: drawerWidth,
-        height: 'fit-content',
+        minHeight: "100vh",
+        height: "fit-content",
+        overflowY: "auto",
+        paddingBottom: "100px",
         [theme.breakpoints.down('md')]: {
-            width: `calc(100% - 75px)`,
-            marginLeft: "75px",
-          },
+          width: `calc(100% - 75px)`,
+          marginLeft: "75px",
+        },
     },
     soundtrackListAvatar: {
         backgroundColor: 'transparent', 
@@ -211,10 +215,7 @@ const AlbumDetailPage: NextPage<AlbumDetailPageProps> = ({album}) => {
 export default AlbumDetailPage;
 
 export const getServerSideProps: GetServerSideProps<AlbumDetailPageProps, {id: string}> = async (context) => {
-    context.res.setHeader(
-      'Cache-Control',
-      'public, s-maxage=40, stale-while-revalidate=40'
-    )
+    context.res.setHeader('Cache-Control', 'public, s-maxage=40, stale-while-revalidate=59');
     const { id } = context.params! //Assertion null
     const { data: album } = await http.get(`albums/${id}`);
     const { data: soundtracks } = await http.get(`albums/${id}/soundtracks`);
