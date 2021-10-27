@@ -41,7 +41,7 @@ const Search:FC = () => {
     
     const setRoute = useCallback((e) => {
       router.push({
-        pathname: '/search',
+        pathname: '/',
         query: {search: e.target.value},
       })
       dispatch({
