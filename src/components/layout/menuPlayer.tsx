@@ -17,7 +17,7 @@ import PlaybackBar from './soundtrackPlayer';
 import VolumeBar from './volumeBar';
 import { useSelector } from "react-redux";
 import { Store } from "../../store/reducers";
-import { PlayingSoundtrack } from '../../models/types';
+import { PlayingSoundtrack } from '../../../models/types';
 import SoundtrackPlayer from './soundtrackPlayer';
 
 const useStyles = makeStyles((theme: Theme) =>
