@@ -7,25 +7,32 @@ export function* searchResults(action: any){
 
   const searchTerm: string = yield select(({searchReducer}) => searchReducer.searchTerm);
 
-  const { data: albums } : AlbumListResponse = yield call(http, `/albums?search_term=${searchTerm}&page=${payload.page}`);
+  if(!searchTerm.length){
+    console.log('return initail')
+    yield put({type: "SEARCH_ALBUMS_RESET"})
+    yield put({type: "SEARCH_SOUNDTRACKS_RESET"})
+  } else {
+    const { data: albums } : AlbumListResponse = yield call(http, `/albums?search_term=${searchTerm}&page=${payload.page}`);
 
-  let soundtracks: Soundtrack[] = []
+    let soundtracks: Soundtrack[] = []
     
-  for (const i in albums) {
-    if (albums) {
-      let { data } : SoundtrackListResponse  = yield call(http, `/albums/${albums[i].id}/soundtracks`);
-      soundtracks = data.map((soundtrack) => {
-        soundtrack.artist = albums[i].artist
-        return soundtrack
-      })
+    for (const i in albums) {
+      if (albums) {
+        let { data } : SoundtrackListResponse  = yield call(http, `/albums/${albums[i].id}/soundtracks`);
+        soundtracks = data.map((soundtrack) => {
+          soundtrack.artist = albums[i].artist
+          return soundtrack
+        })
+      }
     }
-  }
 
-  yield put({type: "SEARCH_ALBUMS", payload: albums})
-  yield put({type: "SEARCH_SOUNDTRACKS", payload: soundtracks})
+    yield put({type: "SEARCH_ALBUMS", payload: albums})
+    yield put({type: "SEARCH_SOUNDTRACKS", payload: soundtracks})
+  }
 }
 
 export function* searchSaga(action: any) {
+  console.log(action.payload)
   yield put({ type: "SET_SEARCH_TERM", payload: action.payload});
   
   yield delay(500);
@@ -34,8 +41,9 @@ export function* searchSaga(action: any) {
     
   if(searchTerm.length > 0){
     yield call(http, `/search-log?search_term=${searchTerm}`)
-    yield put({type: "GET_SEARCH_RESULTS_SAGA", payload: {
-      page: 1
-    }})
   } 
+  
+  yield put({type: "GET_SEARCH_RESULTS_SAGA", payload: {
+    page: 1
+  }})
 }
