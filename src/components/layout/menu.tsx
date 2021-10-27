@@ -1,30 +1,21 @@
 import React from 'react';
 import { createStyles, Theme, makeStyles, useTheme, useMediaQuery } from '@material-ui/core';
 import Drawer from '@material-ui/core/Drawer';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
 import List from '@material-ui/core/List';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
-import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import createPlaylistIcon from "../icons/menu/createPlaylist";
-import Image from 'next/image';
 import HomeIcon from '../icons/menu/home';
-import Home from '../../pages';
 import SearchIcon from '../icons/menu/search';
-import SearchIconActive from '../icons/menu/searchActive';
 import LibraryIcon from '../icons/menu/library';
 import CreatePlaylistIcon from '../icons/menu/createPlaylist';
 import LogoIcon from '../icons/menu/logo';
 import LogoSmallIcon from '../icons/menu/logoSmall';
 import HeartIcon from '../icons/menu/heart';
-import DownloadAppIcon from '../icons/menu/downloadApp';
-import Link from 'next/link';
+
 
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -192,7 +183,7 @@ export default function PermanentDrawerLeft() {
             </ListItemIcon>
             <ListItemText primary="Início" className={classes.navListItemText}/>
           </ListItem>
-          <ListItem className={classes.listItemSpacing} component="a" href="/search">
+          <ListItem className={classes.listItemSpacing} component="a" href="/">
             <ListItemIcon className={classes.listIconSpacing}>
               <SearchIcon fill={theme.palette.text.primary}/>
             </ListItemIcon>
