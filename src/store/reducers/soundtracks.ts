@@ -9,6 +9,8 @@ import { SoundtrackList } from "../../../models/types";
     switch (action.type) {
       case "SEARCH_SOUNDTRACKS":
         return {...state, soundtracks: action.payload};
+      case "SEARCH_SOUNDTRACKS_RESET":
+        return initialState;
       default:
         return state;
     }
