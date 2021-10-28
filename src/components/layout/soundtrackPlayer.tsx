@@ -70,7 +70,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     },
     [theme.breakpoints.down('md')]: { //1279px
       position: "absolute",
-      top: "32px",
+      top: "35%",
       right: "10px"
     },
   },

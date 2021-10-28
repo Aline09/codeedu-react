@@ -60,7 +60,10 @@ const useStyles = makeStyles((theme: Theme) =>
       color: theme.palette.text.secondary,
       fontSize: "24px",
       fontWeight: 700,
-      marginBottom: "16px"
+      marginBottom: "16px",
+      [theme.breakpoints.down('xs')]: {
+        marginTop: "80px",
+      },
     },
     bestResultCard:{
       padding: "20px",

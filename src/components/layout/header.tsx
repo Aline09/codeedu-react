@@ -61,12 +61,21 @@ const useStyles = makeStyles((theme: Theme) =>
     // necessary for content to be below app bar
     toolbar: {
       minHeight: "60px",
-      padding: "24px 24px"
+      padding: "24px 24px",
+      [theme.breakpoints.down('xs')]: { //1279px
+        justifyContent: "space-between"
+      },
     },
     content: {
       flexGrow: 1,
       paddingLeft: 20,
       paddingRight: 20,
+      [theme.breakpoints.down('xs')]: { //1279px
+        position: "absolute",
+        top: "80px",
+        right: "0px",
+        width: "100%"
+      },
     },
     buttonMenu: {
       marginLeft: 20,
@@ -77,14 +86,23 @@ const useStyles = makeStyles((theme: Theme) =>
       paddingBottom: 2,
       fontWeight: 700,
       fontSize: 14,
-      letterSpacing: "normal"
+      letterSpacing: "normal",
+      [theme.breakpoints.down('xs')]: {
+        fontSize: '0',
+      },
     },
     buttonMenuAvatar: {
       height: 28,
-      width: 28
+      width: 28,
+      [theme.breakpoints.down('xs')]: {
+        marginRight: '0'
+      },
     },
     buttonMenuIcon: {
-      fontSize: '28px !important'
+      fontSize: '28px !important',
+      [theme.breakpoints.down('xs')]: {
+        marginLeft: '0',
+      },
     },
     iconNavigation: {
       height: 32,

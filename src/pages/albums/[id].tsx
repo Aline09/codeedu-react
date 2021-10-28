@@ -137,7 +137,7 @@ const AlbumDetailPage: NextPage<AlbumDetailPageProps> = ({album}) => {
                 <div className={classes.toolbar} />
                 
                 <div className={classes.headerContent}>
-                    <Avatar variant="square" className={classes.headerContentPhoto} alt="Remy Sharp" src="https://www.w3schools.com/w3images/avatar3.png" />
+                    <Avatar variant="square" className={classes.headerContentPhoto} alt="Remy Sharp" src={`/albumLarge/${album.id}.jpg`} />
                     <div className={classes.headerContentInfo}>
                         <Typography component="h2" className={classes.headerContentInfoTitle}> ÁLBUM </Typography>
                         <Typography component="h1" className={classes.headerContentInfoName}> {album.name} </Typography>
