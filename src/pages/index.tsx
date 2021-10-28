@@ -180,8 +180,8 @@ const SearchPage: NextPage<any> = () => {
                     <Card key={index} className={classes.bestResultCard}>
                       <CardMedia
                         className={classes.bestResultCardImage}
-                        image="/michael.jpg"
-                        title="Paella dish"
+                        image="/artists/michael.jpg"
+                        title={`${album.artist}`}
                     />
                     <Grid container direction="column" className={classes.bestResultCardDescription}>
                       <Grid item>
@@ -207,8 +207,26 @@ const SearchPage: NextPage<any> = () => {
               {
                 soundtracks.slice(0,4).map((soundtrack) => {
                   return ( 
-                    <SoundtrackList primary={soundtrack.name} secondary={soundtrack.artist} soundtrackTime={soundtrack.minutes} key={soundtrack.id}>
-                      <Avatar variant="square" alt="Remy Sharp" src="/michael.jpg" />
+                    <SoundtrackList 
+                      onClick={
+                        () => {
+                        dispatch({
+                          type: "START_PLAYER_SAGA", 
+                          payload: {
+                            albumImage: `/albumSmall/${soundtrack.album_id}.jpg`,
+                            soundtrackName: soundtrack.name,
+                            soundtrackTime: soundtrack.minutes,
+                            artistName: soundtrack.artist,
+                            isPlayingSoundtrack: true
+                          }
+                        })
+                       }
+                      }
+                      primary={soundtrack.name} 
+                      secondary={soundtrack.artist} 
+                      soundtrackTime={soundtrack.minutes} 
+                      key={soundtrack.id}>
+                      <Avatar variant="square" alt={`${soundtrack.artist}`} src="/artists/michael.jpg" />
                     </SoundtrackList>)
                 })
               }
