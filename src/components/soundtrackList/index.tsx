@@ -51,7 +51,14 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
         letterSpacing: "normal",
         lineHeight: "24px",
         textTransform: "none",
-        color: theme.palette.primary.contrastText
+        color: theme.palette.primary.contrastText,
+        [theme.breakpoints.down('xs')]: {
+          width: '175px',
+          overflow: 'hidden',
+          whiteSpace: 'nowrap',
+          textOverflow: 'ellipsis',
+          fontSize: '14px'
+        },
     },
     "& p":{
         color: theme.palette.text.primary,
@@ -59,7 +66,10 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
         fontWeight: 400,
         letterSpacing: "normal",
         lineHeight: "16px",
-        textTransform: "none"
+        textTransform: "none",
+        [theme.breakpoints.down('xs')]: {
+          fontSize: '12px'
+        },
     }
   },
   soundtracksListItemDetail:{
@@ -71,7 +81,10 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
         fontWeight: 400,
         letterSpacing: "normal",
         lineHeight: "16px",
-        textTransform: "none"
+        textTransform: "none",
+        [theme.breakpoints.down('xs')]: {
+          display: 'none'
+        },
     }
   },
   soundtrackTime:{
@@ -79,6 +92,9 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
   },
   saveSongIcon:{
     fill: theme.palette.text.primary,
+    [theme.breakpoints.down('xs')]: {
+      display: 'none'
+    },
   },
   optionsIcon:{
     fill: theme.palette.primary.contrastText,
