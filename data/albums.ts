@@ -27,7 +27,7 @@ export const albums: Album[] = [
   },
   {
     "id": "610006638aa5ebbf3482172c",
-    "name": "Forever Michael",
+    "name": "Ben",
     "artist": "Michael Jackson",
     "created_at": "2009-09-06T06:23:40"
   },
